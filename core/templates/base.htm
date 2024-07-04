@@ -1,0 +1,22 @@
+{% extends "handyhelpers/handyhelpers_with_sidebar.htm" %}
+{% load static %}
+
+{% block favicon %}
+<title>{{ PROJECT_NAME|title }}</title>
+{% endblock favicon %}
+
+{% block project_head_extra %}
+<script src="{% static 'node_modules/chart.js/dist/chart.min.js' %}" type="text/javascript"></script>
+{% endblock project_head_extra %}
+
+{% block sidebar %}
+{% include 'core/partials/sidebar.htm' %}
+{% endblock sidebar %}
+
+{% block mainnavbar %}
+{% include 'core/partials/navbar.htm' %}
+{% endblock mainnavbar %}
+
+{% block mainfooter %}
+{% include 'core/partials/footer.htm' %}
+{% endblock mainfooter%}

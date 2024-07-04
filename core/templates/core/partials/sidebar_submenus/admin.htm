@@ -1,0 +1,26 @@
+<li class="sidebar-item">
+    <a href="#" class="sidebar-link collapsed" data-bs-target="#multi" data-bs-toggle="collapse"
+        aria-expanded="false"><i class="fa-solid fa-id-badge pe-2"></i>
+        Admin
+    </a>
+    <ul id="multi" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
+        <li class="sidebar-link">
+            <a href="/admin" class="sidebar-link ms-4">Django Admin</a>
+        </li>
+        <li class="sidebar-link">
+            <a href="{% url 'pygwalker:' %}" class="sidebar-link ms-4">Pywalker</a>
+        </li>
+        <li class="sidebar-link">
+            <a href="#" class="sidebar-link collapsed ms-4" data-bs-target="#level-1"
+                data-bs-toggle="collapse" aria-expanded="false">Host Utilities</a>
+            <ul id="level-1" class="sidebar-dropdown list-unstyled collapse">
+                <li class="sidebar-link"><a class="sidebar-link ms-5" href="{% url 'hostutils:host_details' %}">Host Details</a></li>
+                <li class="sidebar-link"><a class="sidebar-link ms-5" href="{% url 'hostutils:host_cpu' %}">CPU</a></li>
+                <li class="sidebar-link"><a class="sidebar-link ms-5" href="{% url 'hostutils:host_disk' %}">Disk</a></li>
+                <li class="sidebar-link"><a class="sidebar-link ms-5" href="{% url 'hostutils:host_memory' %}">Memory</a></li>
+                <li class="sidebar-link"><a class="sidebar-link ms-5" href="{% url 'hostutils:host_network' %}">Network</a></li>
+                <li class="sidebar-link"><a class="sidebar-link ms-5" href="{% url 'hostutils:host_process' %}">Processes</a></li>
+            </ul>
+        </li>
+    </ul>
+</li>

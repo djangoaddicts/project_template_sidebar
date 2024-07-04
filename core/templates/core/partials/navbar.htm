@@ -1,0 +1,45 @@
+<nav class="navbar navbar-expand px-3 border-bottom">
+    {% if user.is_authenticated %}
+    <button class="btn" id="sidebar-toggle" type="button">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    {% endif %}
+    <div class="navbar-collapse navbar">
+        <ul class="navbar-nav">                         
+
+            {% if user.is_authenticated %}
+                <li class="nav-item dropdown align-end mx-2">
+                    <a href="#" class="nav-link">
+                    </a>
+                </li>
+                {% comment %} <li class="nav-item dropdown align-end mx-2">
+                    <a href="#" class="nav-link theme-toggle">
+                        <i class="fa-regular fa-moon"></i>
+                        <i class="fa-regular fa-sun"></i>
+                    </a>
+                </li> {% endcomment %}
+                <li class="nav-item dropdown align-end mx-2">
+                    <a class="nav-link" href="#" 
+                    hx-get="{% url 'handyhelpers:about' %}" 
+                    hx-target="#modal_wrapper"
+                    data-bs-toggle="modal"
+                    data-bs-target="#modal_wrapper"
+                    >
+                        <i class="fa fa-info-circle fw"></i>
+                    </a>
+                </li>
+                <li class="nav-item dropdown align-end mx-2">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <b class="fa fa-user fw me-3"></b><span class="hidden-sm">{{ user }}</span>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="{% url 'logout' %}"><b class="fa fa-sign-out-alt fw me-3"></b>Log out</a>
+                        <div class="dropdown-divider"></div>
+                        {% include 'userextensions/snippets/user_extensions_nav_menu.htm' %}
+                    </div>
+                </li>
+            </ul>
+            {% endif %}
+        </ul>
+    </div>
+</nav>

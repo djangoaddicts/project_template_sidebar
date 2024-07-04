@@ -1,0 +1,81 @@
+{% extends BASE_TEMPLATE|default:"base.htm" %}
+{% load model_meta_tags %}
+{% load static %}
+
+{% block local_head %}
+{% endblock %}
+
+{% block content %}
+<div class="container-fluid">
+
+    <section class="animated fadeIn" style="animation-delay: .15s;">
+        <div class="my-3">
+            <h3 class="fw-bold text-primary">Welcome Back, <span class="text-secondary">{{ request.user|title }}</span></h4>
+        </div>
+        <div>&nbsp;</div>
+        <div class="row">
+            <div class="col-12 col-md-6 col-lg-3 d-flex">
+                <a href="" class="card flex-fill border-0 shadow hvr-grow">
+                    <div class="card-header bg-transparent border-0 d-flex align-items-center text-primary">
+                        <span class=" fs-4 mx-2"><i class="fa-regular fa-folder-open"></i></span>
+                    <h5 class="card-title fs-4 fw-bold mx-2">Cases</h5>
+                    </div>
+                    <div class="card-body">
+                    <p class="card-text text-secondary">You have {{ case_count_total }} active cases{% if case_count_new %}; {{ case_count_new }} are new since your last login.{% endif %}</p>
+                    </div>
+                </a>
+            </div>
+            <div class="col-12 col-md-6 col-lg-3 d-flex">
+                <div class="card flex-fill border-0 shadow hvr-grow">
+                    <div class="card-header bg-transparent border-0 d-flex align-items-center text-primary">
+                        <span class=" fs-4 mx-2"><i class="fa-solid fa-message"></i></span>
+                    <h5 class="card-title fs-4 fw-bold mx-2">Messages</h5>
+                    </div>
+                    <div class="card-body">
+                    <p class="card-text text-secondary">You have {{ message_count_total }} messages{% if message_count_new %}; {{ message_count_new }} are new since your last login.{% endif %}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-3 d-flex">
+                <div class="card flex-fill border-0 shadow hvr-grow">
+                    <div class="card-header bg-transparent border-0 d-flex align-items-center text-primary">
+                        <span class=" fs-4 mx-2"><i class="fa-regular fa-calendar"></i></span>
+                    <h5 class="card-title fs-4 fw-bold mx-2">Calendar Items</h5>
+                    </div>
+                    <div class="card-body">
+                    <p class="card-text text-secondary">4 new items have been added to your calendar.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-3 d-flex">
+                <a href="" class="card flex-fill border-0 shadow hvr-grow">                        
+                    <div class="card-header bg-transparent border-0 d-flex align-items-center text-primary">
+                        <span class=" fs-4 mx-2"><i class="fa-solid fa-gavel"></i></span>
+                    <h5 class="card-title fs-4 fw-bold mx-2">Hearings</h5>
+                    </div>
+                    <div class="card-body">
+                    <p class="card-text text-secondary">You have {{ hearing_count_total }} hearings currently scheduled{% if hearing_count_new %}; {{ hearing_count_new }} are new since your last login.{% endif %}</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section class="animated fadeIn" style="animation-delay: .25s;">
+        <div class="my-3">
+            <div>&nbsp;</div>
+            <h3 class="fw-bold text-primary">Latest Activity</h3>
+        </div>
+        <div class="row mb-4 flex-grow-1">
+            <div class="col me-1 mb-1 text-secondary text-end small">
+                <span class="mx-1 hvr-grow pointer" style="cursor: pointer;">Since Last Login</span>
+                <span class="mx-1 hvr-grow pointer" style="cursor: pointer;">Past Day</span>
+                <span class="mx-1 hvr-grow pointer" style="cursor: pointer;">Past Week</span>
+            </div>
+            <!-- First Row in Left Column -->
+            <div id="activity-card" class="col-md-12" hx-get="">
+            </div>
+        </div>
+    </section>
+</div>
+{% endblock content %}

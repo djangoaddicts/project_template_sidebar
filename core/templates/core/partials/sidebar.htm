@@ -1,0 +1,18 @@
+{% load static %}
+{% if user.is_authenticated %}
+<aside id="sidebar" class="js-sidebar">
+    <!-- Content For Sidebar -->
+    <div class="h-100">
+        <div class="sidebar-logo">
+            <a href="/" class="fw-bold text-info ms-2 fs-2">{{ PROJECT_NAME|title }}</a>
+        </div>
+        <ul class="sidebar-nav">
+            {% include "core/partials/sidebar_submenus/rest_api.htm" %}
+
+            {% if user.is_superuser %}
+            {% include "core/partials/sidebar_submenus/admin.htm" %}
+            {% endif %}
+        </ul>
+    </div>
+</aside>
+{% endif %}
