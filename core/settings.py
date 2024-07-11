@@ -283,3 +283,4 @@ PROJECT_VERSION = env.str("PROJECT_VERSION", "")
 PROJECT_SOURCE = "https://github.com/djangoaddicts"
 
 PYGWALKER_THEME = "light"
+SESSION_COOKIE_SECURE = True
