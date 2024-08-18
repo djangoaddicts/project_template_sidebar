@@ -22,7 +22,7 @@ A reusable template for making django projects
 4. use the following command to create a django project based on the django project template:
 
     ```bash
-    django-admin startproject my_project_name --template https://github.com/djangoaddicts/project_template_default/archive/refs/heads/main.zip
+    django-admin startproject my_project_name --template https://github.com/djangoaddicts/project_template_sidebar/archive/refs/heads/main.zip
     ```
 
 5. rename the project name to "django_project":
